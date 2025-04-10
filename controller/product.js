@@ -54,3 +54,31 @@ exports.view_product = async(req,res)=>{
         })
     }
 }
+exports.view_one_product = async (req, res) => {
+    try {
+        const productId = req.params.id;
+
+        // const data = await product.findById(productId).populate('category_id', 'category_name').populate('subcategory_id','subcategory_name');
+        const data = await product.findById(productId);
+
+        console.log(data);
+
+        if (data) {
+            res.status(200).json({
+                status: true,
+                message: "Product retrieved successfully",
+                data
+            });
+        } else {
+            res.status(404).json({
+                status: false,
+                message: "Product not found"
+            });
+        }
+    } catch (error) {
+        res.status(500).json({
+            status: false,
+            error: error.message
+        });
+    }
+};

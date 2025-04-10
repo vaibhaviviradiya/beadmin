@@ -26,16 +26,14 @@ const product = new mongoose.Schema({
         ref : "category"
     },
     category_name : {
-        type : String,
-        ref : "category"
+        type : String
     },
     subcategory_id : {
         type :mongoose.Schema.Types.ObjectId,
         ref : "subcategory"
     },
     subcategory_name : {
-        type : String,
-        ref : "subcategory"
+        type : String
     }
 })
 

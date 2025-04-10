@@ -4,7 +4,7 @@ var multer = require('multer');
 var admin_login = require('../controller/admin_con')
 const { add_category, view_category } = require('../controller/category');
 const { sub_category, view_subcategory } = require('../controller/subcategory');
-const { add_product, view_product } = require('../controller/product');
+const { add_product, view_product, view_one_product } = require('../controller/product');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -29,4 +29,6 @@ router.get('/dispsubcat',view_subcategory)
 
 router.post('/addproduct/:id',upload.array('picture',15),add_product)
 router.get('/viewproduct',view_product)
+router.get('/viewoneproduct/:id',view_one_product);
+
 module.exports = router;
