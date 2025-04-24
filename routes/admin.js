@@ -6,7 +6,7 @@ const {create_user, user_login, view_user} = require('../controller/user_con')
 const { add_category, view_category } = require('../controller/category');
 const { sub_category, view_subcategory } = require('../controller/subcategory');
 const { add_product, view_product, view_one_product } = require('../controller/product');
-const { create_order, view_order } = require('../controller/order_con')
+const { create_order, view_order, cancel_order } = require('../controller/order_con')
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -39,5 +39,6 @@ router.get('/viewuser',view_user)
 
 router.post('/addorder',create_order)
 router.get('/vieworder',view_order)
+router.delete('/cancelorder/:id',cancel_order)
 
 module.exports = router;

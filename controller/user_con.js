@@ -1,5 +1,7 @@
 const usermodel = require('../model/user_model')
 var bcrypt = require('bcrypt')
+var nodemailer = require('nodemailer')
+
 
 exports.create_user = async (req, res) => {
     try {
@@ -89,4 +91,4 @@ exports.view_user = async(req,res)=>{
             error:error.message
         })
     }
-}
+}   
